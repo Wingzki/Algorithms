@@ -29,7 +29,7 @@ struct BinaryTreeNode {
 
 @interface BinaryTree : NSObject
 
-@property (strong, nonatomic) BinaryTreeNode *root;
+@property (strong, nonatomic, readonly) BinaryTreeNode *root;
 
 - (void)insertNode:(NSInteger)value;
 

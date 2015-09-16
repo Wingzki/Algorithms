@@ -42,6 +42,12 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
 
 @end
 
+@interface BinaryTree ()
+
+@property (strong, nonatomic, readwrite) BinaryTreeNode *root;
+
+@end
+
 @implementation BinaryTree
 
 - (instancetype)init
@@ -94,20 +100,11 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
             NSLog(@"NULL");
         }
         
-        
-        
     }else {
         
         return;
         
     }
-    
-    
-    
-    
-    
-    
-    
     
 }
 
