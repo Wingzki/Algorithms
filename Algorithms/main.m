@@ -8,11 +8,26 @@
 
 #import <Foundation/Foundation.h>
 #import "QuickSort.h"
+#import "Compounding.h"
+#import "BinaryTree.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        QuickSort *sort = [[QuickSort alloc] init];
+        
+        BinaryTree *tree = [[BinaryTree alloc] init];
+        
+        [tree insertNode:100];
+        
+        [tree insertNode:110];
+        
+        [tree insertNode:90];
+        
+        [tree insertNode:130];
+        
+        [tree insertNode:50];
+        
+        NSLog(@"%@", tree);
         
     }
     return 0;

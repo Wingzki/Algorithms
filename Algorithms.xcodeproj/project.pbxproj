@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C90FF1C41BA7D1E000E2FD8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C90FF1C31BA7D1E000E2FD8F /* main.m */; };
 		C90FF1CC1BA7D23C00E2FD8F /* QuickSort.m in Sources */ = {isa = PBXBuildFile; fileRef = C90FF1CB1BA7D23C00E2FD8F /* QuickSort.m */; };
+		C90FF1CF1BA814C300E2FD8F /* Compounding.m in Sources */ = {isa = PBXBuildFile; fileRef = C90FF1CE1BA814C300E2FD8F /* Compounding.m */; };
+		C90FF1D21BA932A900E2FD8F /* BinaryTree.m in Sources */ = {isa = PBXBuildFile; fileRef = C90FF1D11BA932A900E2FD8F /* BinaryTree.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +30,10 @@
 		C90FF1C31BA7D1E000E2FD8F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C90FF1CA1BA7D23C00E2FD8F /* QuickSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickSort.h; sourceTree = "<group>"; };
 		C90FF1CB1BA7D23C00E2FD8F /* QuickSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickSort.m; sourceTree = "<group>"; };
+		C90FF1CD1BA814C300E2FD8F /* Compounding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Compounding.h; sourceTree = "<group>"; };
+		C90FF1CE1BA814C300E2FD8F /* Compounding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Compounding.m; sourceTree = "<group>"; };
+		C90FF1D01BA932A900E2FD8F /* BinaryTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinaryTree.h; sourceTree = "<group>"; };
+		C90FF1D11BA932A900E2FD8F /* BinaryTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BinaryTree.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,10 @@
 				C90FF1C31BA7D1E000E2FD8F /* main.m */,
 				C90FF1CA1BA7D23C00E2FD8F /* QuickSort.h */,
 				C90FF1CB1BA7D23C00E2FD8F /* QuickSort.m */,
+				C90FF1CD1BA814C300E2FD8F /* Compounding.h */,
+				C90FF1CE1BA814C300E2FD8F /* Compounding.m */,
+				C90FF1D01BA932A900E2FD8F /* BinaryTree.h */,
+				C90FF1D11BA932A900E2FD8F /* BinaryTree.m */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -123,6 +133,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C90FF1D21BA932A900E2FD8F /* BinaryTree.m in Sources */,
+				C90FF1CF1BA814C300E2FD8F /* Compounding.m in Sources */,
 				C90FF1C41BA7D1E000E2FD8F /* main.m in Sources */,
 				C90FF1CC1BA7D23C00E2FD8F /* QuickSort.m in Sources */,
 			);
@@ -241,6 +253,7 @@
 				C90FF1C91BA7D1E000E2FD8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
