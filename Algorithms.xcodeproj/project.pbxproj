@@ -11,6 +11,7 @@
 		C90FF1CC1BA7D23C00E2FD8F /* QuickSort.m in Sources */ = {isa = PBXBuildFile; fileRef = C90FF1CB1BA7D23C00E2FD8F /* QuickSort.m */; };
 		C90FF1CF1BA814C300E2FD8F /* Compounding.m in Sources */ = {isa = PBXBuildFile; fileRef = C90FF1CE1BA814C300E2FD8F /* Compounding.m */; };
 		C90FF1D21BA932A900E2FD8F /* BinaryTree.m in Sources */ = {isa = PBXBuildFile; fileRef = C90FF1D11BA932A900E2FD8F /* BinaryTree.m */; };
+		C974D3A31BA9A24700ADF411 /* EightQueen.m in Sources */ = {isa = PBXBuildFile; fileRef = C974D3A11BA9A24700ADF411 /* EightQueen.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,8 @@
 		C90FF1CE1BA814C300E2FD8F /* Compounding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Compounding.m; sourceTree = "<group>"; };
 		C90FF1D01BA932A900E2FD8F /* BinaryTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinaryTree.h; sourceTree = "<group>"; };
 		C90FF1D11BA932A900E2FD8F /* BinaryTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BinaryTree.m; sourceTree = "<group>"; };
+		C974D3A11BA9A24700ADF411 /* EightQueen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EightQueen.m; sourceTree = "<group>"; };
+		C974D3A21BA9A24700ADF411 /* EightQueen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EightQueen.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +69,8 @@
 		C90FF1C21BA7D1E000E2FD8F /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				C974D3A11BA9A24700ADF411 /* EightQueen.m */,
+				C974D3A21BA9A24700ADF411 /* EightQueen.h */,
 				C90FF1C31BA7D1E000E2FD8F /* main.m */,
 				C90FF1CA1BA7D23C00E2FD8F /* QuickSort.h */,
 				C90FF1CB1BA7D23C00E2FD8F /* QuickSort.m */,
@@ -134,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C90FF1D21BA932A900E2FD8F /* BinaryTree.m in Sources */,
+				C974D3A31BA9A24700ADF411 /* EightQueen.m in Sources */,
 				C90FF1CF1BA814C300E2FD8F /* Compounding.m in Sources */,
 				C90FF1C41BA7D1E000E2FD8F /* main.m in Sources */,
 				C90FF1CC1BA7D23C00E2FD8F /* QuickSort.m in Sources */,
