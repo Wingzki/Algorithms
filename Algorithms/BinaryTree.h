@@ -8,14 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-struct BinaryTreeNode {
-    
-    NSInteger value;
-    struct BinaryTreeNode *leftNode;
-    struct BinaryTreeNode *rightNode;
-    
-};
-
 @interface BinaryTreeNode : NSObject
 
 @property (assign, nonatomic) NSInteger value;

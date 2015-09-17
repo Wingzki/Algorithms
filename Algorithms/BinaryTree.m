@@ -8,7 +8,13 @@
 
 #import "BinaryTree.h"
 
-//typedef struct BinaryTreeNode BinaryTreeNode;
+struct BinaryTreeNode {
+    
+    NSInteger value;
+    struct BinaryTreeNode *leftNode;
+    struct BinaryTreeNode *rightNode;
+    
+};
 
 struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode *left, struct BinaryTreeNode *right) {
     
@@ -21,6 +27,7 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
     return node;
     
 }
+
 @implementation BinaryTreeNode
 
 - (instancetype)initWithValue:(NSInteger)value
@@ -66,7 +73,7 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
         
         [self logBinaryTree:self.root];
         
-        return [NSString stringWithFormat:@"BinaryTree:"];
+        return [NSString stringWithFormat:@"BinaryTree"];
         
     }else {
         
