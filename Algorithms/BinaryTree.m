@@ -30,6 +30,11 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
 
 @implementation BinaryTreeNode
 
+- (void)dealloc
+{
+    NSLog(@"%@ = %@", [self class], @(self.value));
+}
+
 - (instancetype)initWithValue:(NSInteger)value
 {
     self = [super init];
@@ -133,8 +138,9 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
 - (BOOL)deleteNode:(NSInteger)value {
     
     BinaryTreeNode *result;
+    BinaryTreeNode *parentNode;
     
-    if ([self findNode:value result:&result]) {
+    if ([self findNode:value node:self.root result:&result parentNode:&parentNode]) {
         
         if (result.rightNode && !result.leftNode) {
             
@@ -152,11 +158,21 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
             
         }
         
-        if (result.rightNode && result.leftNode) {
+        if (!result.rightNode && !result.leftNode) {
+            
+            if (parentNode.leftNode.value == result.value) {
+                
+                parentNode.leftNode = nil;
+                
+            }else if (parentNode.rightNode.value == result.value) {
+                
+                parentNode.rightNode = nil;
+                
+            }
             
         }
         
-        if (!result.rightNode && !result.leftNode) {
+        if (result.rightNode && result.leftNode) {
             
         }
         
@@ -172,13 +188,13 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
 
 - (BOOL)findNode:(NSInteger)value result:(BinaryTreeNode **)result {
     
-    return [self findNode:value node:self.root result:result];
+    return [self findNode:value node:self.root result:result parentNode:nil];
     
 }
 
 #pragma mark - Private
 
-- (BOOL)findNode:(NSInteger)value node:(BinaryTreeNode *)node result:(BinaryTreeNode **)result {
+- (BOOL)findNode:(NSInteger)value node:(BinaryTreeNode *)node result:(BinaryTreeNode **)result parentNode:(BinaryTreeNode **)parentNode{
     
     if (!node) {
         
@@ -194,7 +210,9 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
         
     }else {
         
-        return [self findNode:value node:node.leftNode result:result] || [self findNode:value node:node.rightNode result:result];
+        *parentNode = node;
+        
+        return [self findNode:value node:node.leftNode result:result parentNode:parentNode] || [self findNode:value node:node.rightNode result:result parentNode:parentNode];
         
     }
     
