@@ -62,6 +62,7 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
     self = [super init];
     if (self) {
         
+        
     }
     return self;
 }
@@ -129,6 +130,76 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
     
 }
 
+- (BOOL)deleteNode:(NSInteger)value {
+    
+    BinaryTreeNode *result;
+    
+    if ([self findNode:value result:&result]) {
+        
+        if (result.rightNode && !result.leftNode) {
+            
+            result.value     = result.leftNode.value;
+            result.rightNode = result.leftNode.rightNode;
+            result.leftNode  = result.leftNode.leftNode;
+            
+        }
+        
+        if (!result.rightNode && result.leftNode) {
+            
+            result.value     = result.rightNode.value;
+            result.rightNode = result.rightNode.rightNode;
+            result.leftNode  = result.rightNode.leftNode;
+            
+        }
+        
+        if (result.rightNode && result.leftNode) {
+            
+        }
+        
+        if (!result.rightNode && !result.leftNode) {
+            
+        }
+        
+        return YES;
+        
+    }else {
+        
+        return NO;
+        
+    }
+    
+}
+
+- (BOOL)findNode:(NSInteger)value result:(BinaryTreeNode **)result {
+    
+    return [self findNode:value node:self.root result:result];
+    
+}
+
+#pragma mark - Private
+
+- (BOOL)findNode:(NSInteger)value node:(BinaryTreeNode *)node result:(BinaryTreeNode **)result {
+    
+    if (!node) {
+        
+        return NO;
+        
+    }
+    
+    if (node.value == value) {
+        
+        *result = node;
+        
+        return YES;
+        
+    }else {
+        
+        return [self findNode:value node:node.leftNode result:result] || [self findNode:value node:node.rightNode result:result];
+        
+    }
+    
+}
+
 - (void)insertNode:(NSInteger)value node:(BinaryTreeNode *)node {
     
     if (value > node.value) {
@@ -156,6 +227,28 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
             
             return;
         }
+        
+    }
+    
+}
+
+- (BOOL)leftNode:(BinaryTreeNode *)node result:(BinaryTreeNode **)result {
+    
+    if (!node) {
+        
+        return NO;
+        
+    }
+    
+    if (node.leftNode) {
+        
+        return [self leftNode:node.leftNode result:result];
+        
+    }else {
+        
+        *result = node;
+        
+        return YES;
         
     }
     

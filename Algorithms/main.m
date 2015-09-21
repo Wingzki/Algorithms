@@ -27,7 +27,13 @@ int main(int argc, const char * argv[]) {
         
         [tree insertNode:50];
         
-        NSLog(@"%@", tree);
+        BinaryTreeNode *result;
+        
+        BOOL find = [tree findNode:100 result:&result];
+        
+        [tree deleteNode:100];
+        
+        NSLog(@"%@", find ? result : @"没有找到");
         
     }
     return 0;

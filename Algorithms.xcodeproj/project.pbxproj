@@ -69,9 +69,9 @@
 		C90FF1C21BA7D1E000E2FD8F /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				C90FF1C31BA7D1E000E2FD8F /* main.m */,
 				C974D3A11BA9A24700ADF411 /* EightQueen.m */,
 				C974D3A21BA9A24700ADF411 /* EightQueen.h */,
-				C90FF1C31BA7D1E000E2FD8F /* main.m */,
 				C90FF1CA1BA7D23C00E2FD8F /* QuickSort.h */,
 				C90FF1CB1BA7D23C00E2FD8F /* QuickSort.m */,
 				C90FF1CD1BA814C300E2FD8F /* Compounding.h */,

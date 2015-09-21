@@ -24,5 +24,9 @@
 @property (strong, nonatomic, readonly) BinaryTreeNode *root;
 
 - (void)insertNode:(NSInteger)value;
+- (BOOL)deleteNode:(NSInteger)value;
+
+- (BOOL)findNode:(NSInteger)value
+          result:(BinaryTreeNode **)result;
 
 @end
