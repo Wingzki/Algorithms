@@ -29,11 +29,15 @@ int main(int argc, const char * argv[]) {
         
         [tree insertNode:95];
         
+        [tree insertNode:105];
+        
+        [tree insertNode:140];
+        
         BinaryTreeNode *result;
         
         BOOL find = [tree findNode:100 result:&result];
         
-        [tree deleteNode:50];
+        [tree deleteNode:110];
         
         NSLog(@"%@", find ? result : @"没有找到");
         

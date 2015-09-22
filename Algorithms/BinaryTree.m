@@ -137,52 +137,7 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
 
 - (BOOL)deleteNode:(NSInteger)value {
     
-    BinaryTreeNode *result;
-    BinaryTreeNode *parentNode;
-    
-    if ([self findNode:value node:self.root result:&result parentNode:&parentNode]) {
-        
-        if (result.rightNode && !result.leftNode) {
-            
-            result.value     = result.leftNode.value;
-            result.rightNode = result.leftNode.rightNode;
-            result.leftNode  = result.leftNode.leftNode;
-            
-        }
-        
-        if (!result.rightNode && result.leftNode) {
-            
-            result.value     = result.rightNode.value;
-            result.rightNode = result.rightNode.rightNode;
-            result.leftNode  = result.rightNode.leftNode;
-            
-        }
-        
-        if (!result.rightNode && !result.leftNode) {
-            
-            if (parentNode.leftNode.value == result.value) {
-                
-                parentNode.leftNode = nil;
-                
-            }else if (parentNode.rightNode.value == result.value) {
-                
-                parentNode.rightNode = nil;
-                
-            }
-            
-        }
-        
-        if (result.rightNode && result.leftNode) {
-            
-        }
-        
-        return YES;
-        
-    }else {
-        
-        return NO;
-        
-    }
+    return [self deleteNode:value node:self.root];
     
 }
 
@@ -249,6 +204,72 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
     }
     
 }
+
+- (BOOL)deleteNode:(NSInteger)value node:(BinaryTreeNode *)node {
+    
+    if (!node) {
+        
+        return NO;
+        
+    }
+    
+    BinaryTreeNode *result;
+    BinaryTreeNode *parentNode;
+    
+    if ([self findNode:value node:node result:&result parentNode:&parentNode]) {
+        
+        if (result.rightNode && !result.leftNode) {
+            
+            result.value     = result.rightNode.value;
+            result.leftNode  = result.rightNode.leftNode;
+            result.rightNode = result.rightNode.rightNode;
+            
+        }
+        
+        if (!result.rightNode && result.leftNode) {
+            
+            result.value     = result.leftNode.value;
+            result.rightNode = result.leftNode.rightNode;
+            result.leftNode  = result.leftNode.leftNode;
+            
+        }
+        
+        if (!result.rightNode && !result.leftNode) {
+            
+            if (parentNode.leftNode.value == result.value) {
+                
+                parentNode.leftNode = nil;
+                
+            }else if (parentNode.rightNode.value == result.value) {
+                
+                parentNode.rightNode = nil;
+                
+            }
+            
+        }
+        
+        if (result.rightNode && result.leftNode) {
+            
+            BinaryTreeNode *leftNode;
+            
+            [self leftNode:result.rightNode result:&leftNode];
+            
+            result.value = leftNode.value;
+            
+            [self deleteNode:leftNode.value node:leftNode];
+            
+        }
+        
+        return YES;
+        
+    }else {
+        
+        return NO;
+        
+    }
+    
+}
+
 
 - (BOOL)leftNode:(BinaryTreeNode *)node result:(BinaryTreeNode **)result {
     
