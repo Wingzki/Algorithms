@@ -28,11 +28,12 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
     
 }
 
+//二叉树节点
 @implementation BinaryTreeNode
 
 - (void)dealloc
 {
-    NSLog(@"%@ = %@", [self class], @(self.value));
+    NSLog(@"%@ %@ Dealloc", [self class], @(self.value));
 }
 
 - (instancetype)initWithValue:(NSInteger)value
@@ -54,6 +55,7 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
 
 @end
 
+//二叉树
 @interface BinaryTree ()
 
 @property (strong, nonatomic, readwrite) BinaryTreeNode *root;
@@ -121,6 +123,7 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
     
 }
 
+//插入节点
 - (void)insertNode:(NSInteger)value {
     
     if (self.root) {
@@ -135,12 +138,14 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
     
 }
 
+//删除节点
 - (BOOL)deleteNode:(NSInteger)value {
     
     return [self deleteNode:value node:self.root];
     
 }
 
+//查找节点
 - (BOOL)findNode:(NSInteger)value result:(BinaryTreeNode **)result {
     
     return [self findNode:value node:self.root result:result parentNode:nil];

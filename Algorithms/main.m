@@ -39,7 +39,7 @@ int main(int argc, const char * argv[]) {
         
         [tree deleteNode:110];
         
-        NSLog(@"%@", find ? result : @"没有找到");
+        NSLog(@"BinaryTree = %@", tree);
         
     }
     return 0;
