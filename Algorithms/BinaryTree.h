@@ -62,6 +62,13 @@
           result:(BinaryTreeNode **)result;
 
 /**
+ *  计算树的深度
+ *
+ *  @return 深度
+ */
+- (NSInteger)treeDepth;
+
+/**
  *  向左旋转树
  */
 - (void)rotationLeft;

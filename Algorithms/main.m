@@ -31,13 +31,13 @@ int main(int argc, const char * argv[]) {
         
         [tree insertNode:105];
         
-        [tree insertNode:140];
+//        [tree insertNode:140];
         
         BinaryTreeNode *result;
         
         [tree findNode:100 result:&result];
         
-        [tree rotationRight];
+        NSLog(@"Depth = %@", @([tree treeDepth]));
         
         NSLog(@"BinaryTree = %@", tree);
         

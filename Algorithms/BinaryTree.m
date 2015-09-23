@@ -159,6 +159,12 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
     
 }
 
+- (NSInteger)treeDepth {
+    
+    return [self treeDepth:self.root];
+    
+}
+
 - (void)rotationLeft {
     
     [self rotationWithNode:self.root rotationMode:RotationModeLeft];
@@ -335,9 +341,9 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
             }
             
             BinaryTreeNode *rightNode = node.rightNode;
-            node.rightNode = rightNode.leftNode;
-            rightNode.leftNode = node;
-            node = rightNode;
+            node.rightNode            = rightNode.leftNode;
+            rightNode.leftNode        = node;
+            node                      = rightNode;
             
         }
             
@@ -352,9 +358,9 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
             }
             
             BinaryTreeNode *leftNode = node.leftNode;
-            node.leftNode = leftNode.rightNode;
-            leftNode.rightNode = node;
-            node = leftNode;
+            node.leftNode            = leftNode.rightNode;
+            leftNode.rightNode       = node;
+            node                     = leftNode;
             
         }
             
@@ -362,6 +368,31 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
             
         default:
             break;
+    }
+    
+}
+
+- (NSInteger)treeDepth:(BinaryTreeNode *)node {
+    
+    if (!node) {
+        
+        return 0;
+        
+    }else {
+        
+        NSInteger leftDepth  = [self treeDepth:node.leftNode];
+        NSInteger rightDepth = [self treeDepth:node.rightNode];
+        
+        if (leftDepth >= rightDepth) {
+            
+            return leftDepth + 1;
+            
+        }else {
+            
+            return rightDepth + 1;
+            
+        }
+        
     }
     
 }
