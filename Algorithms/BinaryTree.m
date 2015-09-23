@@ -8,6 +8,13 @@
 
 #import "BinaryTree.h"
 
+typedef NS_ENUM(NSUInteger, RotationMode) {
+    
+    RotationModeLeft,
+    RotationModeRight
+    
+};
+
 struct BinaryTreeNode {
     
     NSInteger value;
@@ -152,31 +159,19 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
     
 }
 
-#pragma mark - Private
-
-- (BOOL)findNode:(NSInteger)value node:(BinaryTreeNode *)node result:(BinaryTreeNode **)result parentNode:(BinaryTreeNode **)parentNode{
+- (void)rotationLeft {
     
-    if (!node) {
-        
-        return NO;
-        
-    }
-    
-    if (node.value == value) {
-        
-        *result = node;
-        
-        return YES;
-        
-    }else {
-        
-        *parentNode = node;
-        
-        return [self findNode:value node:node.leftNode result:result parentNode:parentNode] || [self findNode:value node:node.rightNode result:result parentNode:parentNode];
-        
-    }
+    [self rotation:RotationModeLeft];
     
 }
+
+- (void)rotationRight {
+    
+    [self rotation:RotationModeRight];
+    
+}
+
+#pragma mark - Private
 
 - (void)insertNode:(NSInteger)value node:(BinaryTreeNode *)node {
     
@@ -275,7 +270,31 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
     
 }
 
+- (BOOL)findNode:(NSInteger)value node:(BinaryTreeNode *)node result:(BinaryTreeNode **)result parentNode:(BinaryTreeNode **)parentNode{
+    
+    if (!node) {
+        
+        return NO;
+        
+    }
+    
+    if (node.value == value) {
+        
+        *result = node;
+        
+        return YES;
+        
+    }else {
+        
+        *parentNode = node;
+        
+        return [self findNode:value node:node.leftNode result:result parentNode:parentNode] || [self findNode:value node:node.rightNode result:result parentNode:parentNode];
+        
+    }
+    
+}
 
+//查找节点的最左节点
 - (BOOL)leftNode:(BinaryTreeNode *)node result:(BinaryTreeNode **)result {
     
     if (!node) {
@@ -294,6 +313,56 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
         
         return YES;
         
+    }
+    
+}
+
+- (void)rotation:(RotationMode)mode {
+    
+    if (!self.root) {
+        
+        return;
+        
+    }
+    
+    switch (mode) {
+        case RotationModeLeft:{
+            
+            if (!self.root.rightNode) {
+                
+                return;
+                
+            }
+            
+            BinaryTreeNode *rightNode = self.root.rightNode;
+            self.root.rightNode = rightNode.leftNode;
+            rightNode.leftNode = self.root;
+            self.root = rightNode;
+            
+        }
+            
+            break;
+            
+        case RotationModeRight:{
+            
+            if (!self.root.leftNode) {
+                
+                return;
+                
+            }
+            
+            BinaryTreeNode *leftNode = self.root.leftNode;
+            self.root.leftNode = leftNode.rightNode;
+            leftNode.rightNode = self.root;
+            self.root = leftNode;
+            
+            
+        }
+            
+            break;
+            
+        default:
+            break;
     }
     
 }

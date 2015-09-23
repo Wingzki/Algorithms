@@ -61,4 +61,14 @@
 - (BOOL)findNode:(NSInteger)value
           result:(BinaryTreeNode **)result;
 
+/**
+ *  向左旋转树
+ */
+- (void)rotationLeft;
+
+/**
+ *  向右旋转树
+ */
+- (void)rotationRight;
+
 @end
