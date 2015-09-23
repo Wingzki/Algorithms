@@ -161,13 +161,13 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
 
 - (void)rotationLeft {
     
-    [self rotation:RotationModeLeft];
+    [self rotationWithNode:self.root rotationMode:RotationModeLeft];
     
 }
 
 - (void)rotationRight {
     
-    [self rotation:RotationModeRight];
+    [self rotationWithNode:self.root rotationMode:RotationModeRight];
     
 }
 
@@ -317,9 +317,9 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
     
 }
 
-- (void)rotation:(RotationMode)mode {
+- (void)rotationWithNode:(BinaryTreeNode *)node rotationMode:(RotationMode)mode {
     
-    if (!self.root) {
+    if (!node) {
         
         return;
         
@@ -328,16 +328,16 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
     switch (mode) {
         case RotationModeLeft:{
             
-            if (!self.root.rightNode) {
+            if (!node.rightNode) {
                 
                 return;
                 
             }
             
-            BinaryTreeNode *rightNode = self.root.rightNode;
-            self.root.rightNode = rightNode.leftNode;
-            rightNode.leftNode = self.root;
-            self.root = rightNode;
+            BinaryTreeNode *rightNode = node.rightNode;
+            node.rightNode = rightNode.leftNode;
+            rightNode.leftNode = node;
+            node = rightNode;
             
         }
             
@@ -345,17 +345,16 @@ struct BinaryTreeNode BinaryTreeNodeMake(NSInteger value, struct BinaryTreeNode 
             
         case RotationModeRight:{
             
-            if (!self.root.leftNode) {
+            if (!node.leftNode) {
                 
                 return;
                 
             }
             
-            BinaryTreeNode *leftNode = self.root.leftNode;
-            self.root.leftNode = leftNode.rightNode;
-            leftNode.rightNode = self.root;
-            self.root = leftNode;
-            
+            BinaryTreeNode *leftNode = node.leftNode;
+            node.leftNode = leftNode.rightNode;
+            leftNode.rightNode = node;
+            node = leftNode;
             
         }
             

@@ -35,9 +35,9 @@ int main(int argc, const char * argv[]) {
         
         BinaryTreeNode *result;
         
-        BOOL find = [tree findNode:100 result:&result];
+        [tree findNode:100 result:&result];
         
-        [tree deleteNode:110];
+        [tree rotationRight];
         
         NSLog(@"BinaryTree = %@", tree);
         
