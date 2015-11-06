@@ -10,4 +10,6 @@
 
 @interface QuickSort : NSObject
 
++ (void)quickSort:(NSMutableArray *)array separate:(NSRange)range;
+
 @end

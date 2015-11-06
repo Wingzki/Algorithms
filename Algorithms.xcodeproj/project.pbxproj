@@ -12,6 +12,7 @@
 		C90FF1CF1BA814C300E2FD8F /* Compounding.m in Sources */ = {isa = PBXBuildFile; fileRef = C90FF1CE1BA814C300E2FD8F /* Compounding.m */; };
 		C90FF1D21BA932A900E2FD8F /* BinaryTree.m in Sources */ = {isa = PBXBuildFile; fileRef = C90FF1D11BA932A900E2FD8F /* BinaryTree.m */; };
 		C974D3A31BA9A24700ADF411 /* EightQueen.m in Sources */ = {isa = PBXBuildFile; fileRef = C974D3A11BA9A24700ADF411 /* EightQueen.m */; };
+		C9B2DDA71BECA99B00396B40 /* FindSame.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B2DDA61BECA99B00396B40 /* FindSame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,8 @@
 		C90FF1D11BA932A900E2FD8F /* BinaryTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BinaryTree.m; sourceTree = "<group>"; };
 		C974D3A11BA9A24700ADF411 /* EightQueen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EightQueen.m; sourceTree = "<group>"; };
 		C974D3A21BA9A24700ADF411 /* EightQueen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EightQueen.h; sourceTree = "<group>"; };
+		C9B2DDA51BECA99B00396B40 /* FindSame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindSame.h; sourceTree = "<group>"; };
+		C9B2DDA61BECA99B00396B40 /* FindSame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindSame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,14 +73,16 @@
 			isa = PBXGroup;
 			children = (
 				C90FF1C31BA7D1E000E2FD8F /* main.m */,
-				C974D3A11BA9A24700ADF411 /* EightQueen.m */,
 				C974D3A21BA9A24700ADF411 /* EightQueen.h */,
+				C974D3A11BA9A24700ADF411 /* EightQueen.m */,
 				C90FF1CA1BA7D23C00E2FD8F /* QuickSort.h */,
 				C90FF1CB1BA7D23C00E2FD8F /* QuickSort.m */,
 				C90FF1CD1BA814C300E2FD8F /* Compounding.h */,
 				C90FF1CE1BA814C300E2FD8F /* Compounding.m */,
 				C90FF1D01BA932A900E2FD8F /* BinaryTree.h */,
 				C90FF1D11BA932A900E2FD8F /* BinaryTree.m */,
+				C9B2DDA51BECA99B00396B40 /* FindSame.h */,
+				C9B2DDA61BECA99B00396B40 /* FindSame.m */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 				C974D3A31BA9A24700ADF411 /* EightQueen.m in Sources */,
 				C90FF1CF1BA814C300E2FD8F /* Compounding.m in Sources */,
 				C90FF1C41BA7D1E000E2FD8F /* main.m in Sources */,
+				C9B2DDA71BECA99B00396B40 /* FindSame.m in Sources */,
 				C90FF1CC1BA7D23C00E2FD8F /* QuickSort.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

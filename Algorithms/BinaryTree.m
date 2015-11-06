@@ -15,6 +15,9 @@ typedef NS_ENUM(NSUInteger, RotationMode) {
     
 };
 
+/**
+ *  结构体中的只针对象在ARC下无法使用
+ */
 struct BinaryTreeNode {
     
     NSInteger value;

@@ -17,7 +17,7 @@
         
         NSMutableArray *array = [@[@(100), @(50), @(2), @(88), @(53), @(64), @(3), @(65), @(32), @(70), @(6)] mutableCopy];
         
-        [self quickSort:array separate:NSMakeRange(0, array.count)];
+        [QuickSort quickSort:array separate:NSMakeRange(0, array.count)];
         
         NSLog(@"%@", array);
         
@@ -25,7 +25,7 @@
     return self;
 }
 
-- (void)quickSort:(NSMutableArray *)array separate:(NSRange)range {
++ (void)quickSort:(NSMutableArray *)array separate:(NSRange)range {
     
     if (range.length <= 1) {
         
