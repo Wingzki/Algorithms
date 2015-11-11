@@ -10,33 +10,22 @@
 
 @implementation QuickSort
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        
-        NSMutableArray *array = [@[] mutableCopy];
-        
-        for (int i = 0; i < 100; i ++) {
-            
-            [array addObject:[[NSNumber alloc] initWithFloat:arc4random() % 1000]];
-            
-        }
-        
-        CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
-        
-        [QuickSort quickSort:array separate:NSMakeRange(0, array.count - 1)];
-        
-        CFAbsoluteTime end = CFAbsoluteTimeGetCurrent();
-        NSLog(@"time cost: %0.6f", end - start);
-        
-        NSLog(@"%@", array);
-        
-    }
-    return self;
++ (NSArray *)quickSort:(NSArray *)array {
+    
+    NSMutableArray *tempArray = [array mutableCopy];
+    
+    CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
+    
+    [[[self alloc] init] quickSort:tempArray separate:NSMakeRange(0, array.count - 1)];
+    
+    CFAbsoluteTime end = CFAbsoluteTimeGetCurrent();
+    NSLog(@"time cost: %0.6f", end - start);
+    
+    return [tempArray copy];
+    
 }
 
-+ (void)quickSort:(NSMutableArray *)array separate:(NSRange)range {
+- (void)quickSort:(NSMutableArray *)array separate:(NSRange)range {
     
     if (range.location >= range.length) {
         

@@ -18,13 +18,8 @@
         return nil;
     }
     
-    NSMutableArray *sortArrayA = [arrayA mutableCopy];
-    
-    [QuickSort quickSort:sortArrayA separate:NSMakeRange(0, arrayA.count)];
-    
-    NSMutableArray *sortArrayB = [arrayB mutableCopy];
-    
-    [QuickSort quickSort:sortArrayB separate:NSMakeRange(0, arrayB.count)];
+    NSArray *sortArrayA = [QuickSort quickSort:arrayA];
+    NSArray *sortArrayB = [QuickSort quickSort:arrayB];
     
     if ([sortArrayA.firstObject integerValue] > [sortArrayB.lastObject integerValue]) {
         
