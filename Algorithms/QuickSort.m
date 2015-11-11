@@ -15,9 +15,20 @@
     self = [super init];
     if (self) {
         
-        NSMutableArray *array = [@[@(100), @(50), @(2), @(88), @(53), @(64), @(3), @(65), @(32), @(70), @(6)] mutableCopy];
+        NSMutableArray *array = [@[] mutableCopy];
         
-        [QuickSort quickSort:array separate:NSMakeRange(0, array.count)];
+        for (int i = 0; i < 100; i ++) {
+            
+            [array addObject:[[NSNumber alloc] initWithFloat:arc4random() % 1000]];
+            
+        }
+        
+        CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
+        
+        [QuickSort quickSort:array separate:NSMakeRange(0, array.count - 1)];
+        
+        CFAbsoluteTime end = CFAbsoluteTimeGetCurrent();
+        NSLog(@"time cost: %0.6f", end - start);
         
         NSLog(@"%@", array);
         
@@ -27,35 +38,52 @@
 
 + (void)quickSort:(NSMutableArray *)array separate:(NSRange)range {
     
-    if (range.length <= 1) {
+    if (range.location >= range.length) {
         
         return;
         
     }
     
-    NSUInteger i    = range.location;
-    NSUInteger m    = 0;
-    NSInteger  temp = [array[range.location] integerValue];
+    NSInteger i    = range.location;
+    NSInteger j    = range.length;
+    NSInteger temp = [array[range.location] integerValue];
     
-    while (i < (range.location + range.length - 1)) {
+    while (i < j) {
         
-        i++;
-        
-        NSNumber *number = [array[i] copy];
-        
-        if (number.integerValue < temp) {
+        while (i < j && temp < [array[j] integerValue]) {
             
-            [array removeObjectAtIndex:i];
-            [array insertObject:number atIndex:range.location];
+            j--;
             
-            m++;
+        }
+        
+        if (i < j) {
+            
+            [array replaceObjectAtIndex:i withObject:array[j]];
+            
+            i++;
+            
+        }
+        
+        while (i < j && temp > [array[i] integerValue]) {
+            
+            i++;
+            
+        }
+        
+        if (i < j) {
+            
+            [array replaceObjectAtIndex:j withObject:array[i]];
+            
+            j--;
             
         }
         
     }
     
-    NSRange leftRange  = NSMakeRange(range.location, m);
-    NSRange rightRange = NSMakeRange(range.location + m + 1, range.length - m - 1);
+    [array replaceObjectAtIndex:i withObject:@(temp)];
+    
+    NSRange leftRange  = NSMakeRange(range.location, i == 0 ? 0 : i - 1);
+    NSRange rightRange = NSMakeRange(i + 1, range.length);
     
     [self quickSort:array separate:leftRange];
     [self quickSort:array separate:rightRange];

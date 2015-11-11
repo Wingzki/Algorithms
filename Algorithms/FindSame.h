@@ -10,6 +10,9 @@
 
 @interface FindSame : NSObject
 
-+ (NSArray *)findSame:(NSArray *)arrayA :(NSArray *)arrayB;
++ (NSArray *)findSame:(NSArray *)arrayA :(NSArray *)arrayB mode:(NSInteger)mode;
+
++ (NSArray *)findWithIndexMode:(NSArray *)arrayA :(NSArray *)arrayB;
++ (NSArray *)findWithEnumertatorMode:(NSArray *)arrayA :(NSArray *)arrayB;
 
 @end

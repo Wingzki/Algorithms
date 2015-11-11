@@ -44,11 +44,56 @@ int main(int argc, const char * argv[]) {
 //        NSLog(@"BinaryTree = %@", tree);
         
      
-        NSArray *arrayA = @[@(2), @(4), @(6), @(8), @(9)];
+        NSMutableArray *arrayA = [NSMutableArray array];
+//        NSMutableArray *arrayB = [NSMutableArray array];
+//        
+        for (int i = 0; i < 10000000; i++) {
+            
+            [arrayA addObject:@(arc4random() % 10000)];
+//            [arrayB addObject:@(arc4random() % 100)];
+            
+        }
+//
+//        NSMutableArray *sortArrayA = [arrayA mutableCopy];
+//        
+//        [QuickSort quickSort:sortArrayA separate:NSMakeRange(0, arrayA.count)];
+//        
+//        NSMutableArray *sortArrayB = [arrayB mutableCopy];
+//        
+//        [QuickSort quickSort:sortArrayB separate:NSMakeRange(0, arrayB.count)];
         
-        NSArray *arrayB = @[@(1), @(3), @(5), @(7), @(9)];
+//        for (int i = 0; i < 10; i++) {
+//        
+//            [FindSame findWithIndexMode:sortArrayA :sortArrayB];
+//            [FindSame findWithEnumertatorMode:sortArrayA :sortArrayB];
+//            NSLog(@"========");
+//            
+//        }
+
+        CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
         
-        NSLog(@"%@", [FindSame findSame:arrayA :arrayB]);
+        [QuickSort quickSort:[arrayA mutableCopy] separate:NSMakeRange(0, arrayA.count - 1)];
+        
+        CFAbsoluteTime start1 = CFAbsoluteTimeGetCurrent();
+        NSLog(@"time cost: %0.6f", start1 - start);
+        
+        [[arrayA mutableCopy] sortedArrayUsingComparator:^NSComparisonResult(NSNumber *obj1, NSNumber *obj2) {
+            
+            NSInteger a = obj1.integerValue;
+            NSInteger b = obj2.integerValue;
+            
+            if (a > b) {
+                return NSOrderedDescending;
+            }else if (a < b) {
+                return NSOrderedAscending;
+            }else {
+                return  NSOrderedSame;
+            }
+            
+        }];
+        
+        CFAbsoluteTime end = CFAbsoluteTimeGetCurrent();
+        NSLog(@"time cost: %0.6f", end - start1);
         
     }
     return 0;
