@@ -13,6 +13,7 @@
 		C90FF1D21BA932A900E2FD8F /* BinaryTree.m in Sources */ = {isa = PBXBuildFile; fileRef = C90FF1D11BA932A900E2FD8F /* BinaryTree.m */; };
 		C974D3A31BA9A24700ADF411 /* EightQueen.m in Sources */ = {isa = PBXBuildFile; fileRef = C974D3A11BA9A24700ADF411 /* EightQueen.m */; };
 		C9B2DDA71BECA99B00396B40 /* FindSame.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B2DDA61BECA99B00396B40 /* FindSame.m */; };
+		C9B2DDAD1BF3125100396B40 /* HalfIntervalSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B2DDAC1BF3125100396B40 /* HalfIntervalSearch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +41,8 @@
 		C974D3A21BA9A24700ADF411 /* EightQueen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EightQueen.h; sourceTree = "<group>"; };
 		C9B2DDA51BECA99B00396B40 /* FindSame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindSame.h; sourceTree = "<group>"; };
 		C9B2DDA61BECA99B00396B40 /* FindSame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindSame.m; sourceTree = "<group>"; };
+		C9B2DDAB1BF3125100396B40 /* HalfIntervalSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HalfIntervalSearch.h; sourceTree = "<group>"; };
+		C9B2DDAC1BF3125100396B40 /* HalfIntervalSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HalfIntervalSearch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,8 @@
 				C90FF1D11BA932A900E2FD8F /* BinaryTree.m */,
 				C9B2DDA51BECA99B00396B40 /* FindSame.h */,
 				C9B2DDA61BECA99B00396B40 /* FindSame.m */,
+				C9B2DDAB1BF3125100396B40 /* HalfIntervalSearch.h */,
+				C9B2DDAC1BF3125100396B40 /* HalfIntervalSearch.m */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -113,6 +118,7 @@
 		C90FF1B81BA7D1E000E2FD8F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = Wingzki;
 				TargetAttributes = {
@@ -147,6 +153,7 @@
 				C974D3A31BA9A24700ADF411 /* EightQueen.m in Sources */,
 				C90FF1CF1BA814C300E2FD8F /* Compounding.m in Sources */,
 				C90FF1C41BA7D1E000E2FD8F /* main.m in Sources */,
+				C9B2DDAD1BF3125100396B40 /* HalfIntervalSearch.m in Sources */,
 				C9B2DDA71BECA99B00396B40 /* FindSame.m in Sources */,
 				C90FF1CC1BA7D23C00E2FD8F /* QuickSort.m in Sources */,
 			);
@@ -235,14 +242,21 @@
 		C90FF1C81BA7D1E000E2FD8F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Algorithms/Algorithms-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		C90FF1C91BA7D1E000E2FD8F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Algorithms/Algorithms-Bridging-Header.h";
 			};
 			name = Release;
 		};

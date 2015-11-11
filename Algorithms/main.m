@@ -12,6 +12,7 @@
 #import "BinaryTree.h"
 
 #import "FindSame.h"
+#import "HalfIntervalSearch.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -44,24 +45,24 @@ int main(int argc, const char * argv[]) {
 //        NSLog(@"BinaryTree = %@", tree);
         
      
-        NSMutableArray *arrayA = [NSMutableArray array];
+//        NSMutableArray *arrayA = [NSMutableArray array];
 //        NSMutableArray *arrayB = [NSMutableArray array];
-//        
-        for (int i = 0; i < 10000000; i++) {
-            
-            [arrayA addObject:@(arc4random() % 10000)];
+//
+//        for (int i = 0; i < 10000000; i++) {
+//            
+//            [arrayA addObject:@(arc4random() % 100)];
 //            [arrayB addObject:@(arc4random() % 100)];
-            
-        }
+//            
+//        }
 //
 //        NSMutableArray *sortArrayA = [arrayA mutableCopy];
 //        
-//        [QuickSort quickSort:sortArrayA separate:NSMakeRange(0, arrayA.count)];
+//        [QuickSort quickSort:sortArrayA separate:NSMakeRange(0, arrayA.count - 1)];
 //        
 //        NSMutableArray *sortArrayB = [arrayB mutableCopy];
 //        
-//        [QuickSort quickSort:sortArrayB separate:NSMakeRange(0, arrayB.count)];
-        
+//        [QuickSort quickSort:sortArrayB separate:NSMakeRange(0, arrayB.count - 1)];
+//        
 //        for (int i = 0; i < 10; i++) {
 //        
 //            [FindSame findWithIndexMode:sortArrayA :sortArrayB];
@@ -70,30 +71,52 @@ int main(int argc, const char * argv[]) {
 //            
 //        }
 
-        CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
+//        CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
+//        
+//        [QuickSort quickSort:[arrayA mutableCopy] separate:NSMakeRange(0, arrayA.count - 1)];
+//        
+//        CFAbsoluteTime start1 = CFAbsoluteTimeGetCurrent();
+//        NSLog(@"time cost: %0.6f", start1 - start);
+//        
+//        [[arrayA mutableCopy] sortedArrayUsingComparator:^NSComparisonResult(NSNumber *obj1, NSNumber *obj2) {
+//            
+//            NSInteger a = obj1.integerValue;
+//            NSInteger b = obj2.integerValue;
+//            
+//            if (a > b) {
+//                return NSOrderedDescending;
+//            }else if (a < b) {
+//                return NSOrderedAscending;
+//            }else {
+//                return  NSOrderedSame;
+//            }
+//            
+//        }];
+//        
+//        CFAbsoluteTime end = CFAbsoluteTimeGetCurrent();
+//        NSLog(@"time cost: %0.6f", end - start1);
         
-        [QuickSort quickSort:[arrayA mutableCopy] separate:NSMakeRange(0, arrayA.count - 1)];
+        NSArray *array = @[@(1), @(2), @(3), @(4), @(5), @(6), @(7)];
         
-        CFAbsoluteTime start1 = CFAbsoluteTimeGetCurrent();
-        NSLog(@"time cost: %0.6f", start1 - start);
+        NSInteger count = 1;
         
-        [[arrayA mutableCopy] sortedArrayUsingComparator:^NSComparisonResult(NSNumber *obj1, NSNumber *obj2) {
+        NSNumber *tempNumber = [HalfIntervalSearch searchInArray:array with:^NSComparisonResult(NSNumber *objc) {
             
-            NSInteger a = obj1.integerValue;
-            NSInteger b = obj2.integerValue;
-            
-            if (a > b) {
-                return NSOrderedDescending;
-            }else if (a < b) {
+            if (objc.integerValue == count) {
+                return NSOrderedSame;
+            }else if (objc.integerValue > count) {
+                
                 return NSOrderedAscending;
+                
             }else {
-                return  NSOrderedSame;
+                
+                return NSOrderedDescending;
+                
             }
             
         }];
         
-        CFAbsoluteTime end = CFAbsoluteTimeGetCurrent();
-        NSLog(@"time cost: %0.6f", end - start1);
+        NSLog(@"%@", tempNumber);
         
     }
     return 0;
